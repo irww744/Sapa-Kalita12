@@ -223,11 +223,25 @@ const DaftarTagihan: React.FC = () => {
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-white font-semibold text-sm">
-                          {warga.nama.split(' ').map(n => n[0]).join('')}
-                        </span>
-                      </div>
+                      {warga.id === 1 ? (
+                        <img
+                          src="https://oxbalusfprtiklgarvyr.supabase.co/storage/v1/object/public/galeri/Capture1.PNG"
+                          alt={warga.nama}
+                          className="w-10 h-10 rounded-full object-cover mr-3"
+                        />
+                      ) : warga.id === 2 ? (
+                        <img
+                          src="https://oxbalusfprtiklgarvyr.supabase.co/storage/v1/object/public/galeri/Capture2.PNG"
+                          alt={warga.nama}
+                          className="w-10 h-10 rounded-full object-cover mr-3"
+                        />
+                      ) : (
+                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-white font-semibold text-sm">
+                            {warga.nama.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
                       <div>
                         <div className="text-sm font-medium text-gray-900">{warga.nama}</div>
                         <div className="text-sm text-gray-500">ID: {String(warga.id).padStart(3, '0')}</div>
@@ -295,11 +309,25 @@ const DaftarTagihan: React.FC = () => {
               {/* Warga Info */}
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
                 <div className="flex items-center mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold">
-                      {selectedWarga.warga.nama.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
+                  {selectedWarga.warga.id === 1 ? (
+                    <img
+                      src="https://oxbalusfprtiklgarvyr.supabase.co/storage/v1/object/public/galeri/Capture1.PNG"
+                      alt={selectedWarga.warga.nama}
+                      className="w-12 h-12 rounded-full object-cover mr-3"
+                    />
+                  ) : selectedWarga.warga.id === 2 ? (
+                    <img
+                      src="https://oxbalusfprtiklgarvyr.supabase.co/storage/v1/object/public/galeri/Capture2.PNG"
+                      alt={selectedWarga.warga.nama}
+                      className="w-12 h-12 rounded-full object-cover mr-3"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold">
+                        {selectedWarga.warga.nama.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-semibold text-gray-900">{selectedWarga.warga.nama}</h4>
                     <p className="text-sm text-gray-600">{selectedWarga.warga.alamat}</p>
